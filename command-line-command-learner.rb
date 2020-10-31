@@ -1,6 +1,30 @@
 #!/usr/bin/env ruby
 #declare question and answer list	
-question_answer_list = {"pwd": "print working directory"}
+question_answer_list = {pwd: "print working directory",
+hostname: "my computer's networked name",
+mkdir: "make directory",
+cd: "change directory",
+ls: "list directory",
+rmdir: "remove directory",
+pushd: "push directory",
+popd: "pop directory",
+cp: "copy file or directory",
+mv: "move file or directory",
+less: "page through a file",
+cat: "print the whole file",
+xargs: "execute arguments",
+find: "find files",
+grep: "find patterns in files",
+man: "read a manual page",
+apropos: "find what manual page is appropriate",
+env: "look at your environment",
+echo: "print some arguments",
+export: "export or set a new environment variable",
+exit: "exit file or directory",
+sudo: "DANGER! become super user DANGER!",
+chmod: "change permission modifiers",
+chown: "change ownership"}
+
 #determine list question and list answer as seperate variables
 question_answer_list.each do |list_answer, list_question|
 #print question
