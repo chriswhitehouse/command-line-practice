@@ -25,20 +25,27 @@ sudo: "DANGER! become super user DANGER!",
 chmod: "change permission modifiers",
 chown: "change ownership"}
 
+
+#clear the command line
+system("clear")
 #determine list question and list answer as seperate variables
 question_answer_list.each do |list_answer, list_question|
 #print question
-puts "What command will achieve #{list_question}"
+puts "CLUE: #{list_question}"
 #get answer from user
-puts "Enter you answer below:"
+print "ANSWER:"
 user_answer = gets.chomp
 #if the answer is correct
 if user_answer == list_answer.to_s
 #print Correct Answer :-)
 	puts "Right Answer! :-)"
+	gets
+	system("clear")
 #if the answer is wrong
 else
 #print wrong answer :-(
 	puts "Wrong Answer :-("
+	gets
+	system("clear")
 end
 end
