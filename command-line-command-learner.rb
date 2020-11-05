@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#declare question and answer list	
+#declare question and answer list
 question_answer_list = {pwd: "print working directory",
 hostname: "my computer's networked name",
 mkdir: "make directory",
@@ -28,24 +28,24 @@ chown: "change ownership"}
 
 #clear the command line
 system("clear")
-#determine list question and list answer as seperate variables
+#determine list question and list answer as separate variables
 question_answer_list.each do |list_answer, list_question|
 #print question
 puts "CLUE: #{list_question}"
-#get answer from user
-print "ANSWER:"
-user_answer = gets.chomp
-#if the answer is correct
-if user_answer == list_answer.to_s
-#print Correct Answer :-)
-	puts "Right Answer! :-)"
-	gets
-	system("clear")
-#if the answer is wrong
-else
-#print wrong answer :-(
-	puts "Wrong Answer :-("
-	gets
-	system("clear")
+# get answer from user and loop if incorrect
+loop do
+	print "ANSWER: "
+	user_answer = gets.chomp
+	if user_answer == list_answer.to_s
+		puts "Right Answer :-)"
+		gets
+		break # move to next question
+	elsif user_answer == "next"
+		break # move to next question
+	else
+		puts "Wrong Answer :-( try again or type next"
+	end
 end
+
+system("clear")
 end
