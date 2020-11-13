@@ -1,33 +1,30 @@
 #!/usr/bin/env ruby
 #declare question and answer list
-question_answer_list = {pwd: "print working directory",
-hostname: "my computer's networked name",
-mkdir: "make directory",
-cd: "change directory",
-ls: "list directory",
-rmdir: "remove directory",
-pushd: "push directory",
-popd: "pop directory",
-cp: "copy file or directory",
-mv: "move file or directory",
-less: "page through a file",
-cat: "print the whole file",
-xargs: "execute arguments",
-find: "find files",
-grep: "find patterns in files",
-man: "read a manual page",
-apropos: "find what manual page is appropriate",
-env: "look at your environment",
-echo: "print some arguments",
-export: "export or set a new environment variable",
-exit: "exit file or directory",
-sudo: "DANGER! become super user DANGER!",
-chmod: "change permission modifiers",
-chown: "change ownership"}
 
+#import ruby csv library
+require "csv"
 
 #clear the command line
 system("clear")
+#ask user for file to load
+while true do
+	print "Please enter name of QA file to load:
+	* command_line_QA
+	* string_QA
+	* array_QA
+	* hash_QA
+	: "
+	file_name = gets.chomp
+
+	# check input is one of the suggested files
+	if ["command_line_QA", "string_QA", "array_QA", "hash_QA"].include?(file_name)
+		break
+	end
+end
+
+system("clear")
+#load_file name (assuming in same directory)
+question_answer_list = CSV.read(file_name + ".csv")
 #determine list question and list answer as separate variables
 question_answer_list.each do |list_answer, list_question|
 #print question
